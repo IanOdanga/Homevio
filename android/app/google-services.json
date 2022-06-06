@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "911677449238",
+    "project_id": "homevio-4bbe4",
+    "storage_bucket": "homevio-4bbe4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911677449238:android:c487e17918d5ed2004c137",
+        "android_client_info": {
+          "package_name": "com.iluke.homevio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911677449238-es6igv4g7392ct51i5eimq80g7r62tr5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZL1S4vRQkpzlq-2WFd125zuH97wQqmHw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911677449238-es6igv4g7392ct51i5eimq80g7r62tr5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
