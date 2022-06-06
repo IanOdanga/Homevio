@@ -4,6 +4,7 @@ import 'package:homevio/Screens/Login/login_screen.dart';
 
 class SessionTimeout {
   late Timer timer;
+  final navigatorKey = GlobalKey<NavigatorState>();
 
   void startTimer() {
     timer = Timer.periodic(const Duration(minutes: 1), (_) {
@@ -21,13 +22,14 @@ class SessionTimeout {
 
   Future<void> timedOut() async {
     timer.cancel();
+    final context = navigatorKey.currentState?.overlay?.context;
     await showDialog(
-      context: navigatorKey.currentState.overlay.context,
+      context: context!,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        title: const Text('Alert'),
+        title: const Text('Alert', style: TextStyle(fontFamily: "ubuntu", fontWeight: FontWeight.bold),),
         content:
-        const Text('Sorry but you have been logged out due to inactivity...'),
+        const Text('Sorry but you have been logged out due to inactivity...', style: TextStyle(fontFamily: "ubuntu"),),
         actions: <Widget>[
           TextButton(
             onPressed: () {
@@ -40,7 +42,7 @@ class SessionTimeout {
                 false,
               );
             },
-            child: const Text('OK'),
+            child: const Text('OK', style: TextStyle(fontFamily: "ubuntu"),),
           ),
         ],
       ),
