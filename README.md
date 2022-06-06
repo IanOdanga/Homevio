@@ -1,4 +1,4 @@
-# homevio
+# Homevio
 
 Home Service application that allows users to request and receive professional services on time.
 
