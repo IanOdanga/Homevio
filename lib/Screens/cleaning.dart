@@ -89,9 +89,15 @@ class _CleaningPageState extends State<CleaningPage> {
           if (_selectedRooms.contains(index)) {
             _selectedRooms.remove(index);
             roomName = room[0];
+            if(roomName == "Living Room" || roomName == "Kitchen" || roomName == "Office") {
+              roomTotal = 1;
+            }
           } else {
             _selectedRooms.add(index);
             roomName = room[0];
+            if(roomName == "Living Room" || roomName == "Kitchen" || roomName == "Office") {
+              roomTotal = 1;
+            }
             print(roomName);
           }
         });

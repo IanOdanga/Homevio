@@ -17,8 +17,10 @@ class CartPage extends StatefulWidget {
   final int? roomTot;
   final String? date;
   final String? addService;
+  final String? location;
+  final String? providerName;
 
-  CartPage(this.service, this.room, this.roomTot, this.date, this.addService);
+  CartPage(this.service, this.room, this.roomTot, this.date, this.addService, this.location, this.providerName);
 
   @override
   _CartPageState createState() => _CartPageState();
@@ -187,7 +189,7 @@ class _CartPageState extends State<CartPage> {
       else if (room == "Bathroom") {
         price = 200*widget.roomTot!;
       }
-      else if (room == "LivingRoom") {
+      else if (room == "Living Room") {
         price = 500;
       }
       else if (room == "Kitchen") {
@@ -287,7 +289,11 @@ class _CartPageState extends State<CartPage> {
     requestModel.servicetype = widget.service;
     requestModel.uid = user?.uid;
     requestModel.requestid = getRandomString(20);
-    //requestModel.location = usernameController.text;
+    requestModel.location = widget.location;
+    requestModel.dateRequested = DateTime.now();
+    requestModel.roomTotal = widget.roomTot;
+    requestModel.providerName = widget.providerName;
+    requestModel.room = widget.room;
 
     await firebaseFirestore
         .collection("requests")

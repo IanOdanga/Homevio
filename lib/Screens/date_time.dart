@@ -132,7 +132,7 @@ class _DateAndTimeState extends State<DateAndTime> {
                 child: Text(
                   'Select Date \nand Time',
                   style: TextStyle(
-                    fontSize: 35,
+                    fontSize: 30,
                     color: Colors.grey.shade900,
                     fontFamily: "Brand Bold",
                     fontWeight: FontWeight.bold,
@@ -147,7 +147,7 @@ class _DateAndTimeState extends State<DateAndTime> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 30,),
+              const SizedBox(height: 10,),
               FadeAnimation(1, Row(
                 children: [
                   Text("${selectedDate.day}/0${selectedDate.month}/${selectedDate.year}", style: const TextStyle(fontFamily: "ubuntu", fontWeight: FontWeight.w600)),

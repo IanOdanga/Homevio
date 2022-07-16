@@ -11,9 +11,10 @@ class ServiceProviderScreen extends StatefulWidget {
   final String? date;
   final String? addService;
   final String? selectedHour;
+  final String? location;
 
   ServiceProviderScreen(this.service, this.room, this.roomTot, this.date,
-      this.addService, this.selectedHour);
+      this.addService, this.selectedHour, this.location);
 
   @override
   _ServiceProviderScreenState createState() => _ServiceProviderScreenState();
@@ -27,6 +28,8 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
     /*ServiceProvider(widget.selectedHour ?? '', 'Sharon', '8km away'),
     ServiceProvider(widget.selectedHour ?? '', 'Anne', '2 km away'),*/
   ];
+
+  String? _selectedProvider = 'Michael';
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +74,26 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
                           shrinkWrap: true,
                           itemCount: _serviceProvider.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return FadeAnimation((1.0 + index) / 4, dayTask(_serviceProvider[index].time, _serviceProvider[index].name, _serviceProvider[index].distance, index));
+                            return GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _selectedProvider = _serviceProvider[index].name;
+                                });
+                              },
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 300),
+                                child: FadeAnimation((1.0 + index) / 4, dayTask(_serviceProvider[index].time, _serviceProvider[index].name, _serviceProvider[index].distance, index)),
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  color: _selectedProvider == _serviceProvider[index].name ? Colors.orange.shade100.withOpacity(0.5) : Colors.orange.withOpacity(0),
+                                  border: Border.all(
+                                    color: _selectedProvider == _serviceProvider[index].name ? Colors.orange : Colors.white.withOpacity(0),
+                                    width: 1.5,
+                                  ),
+                                ),
+                              ),
+                            );
                           },
                         ),
                         const SizedBox(height: 30.0),
@@ -91,7 +113,7 @@ class _ServiceProviderScreenState extends State<ServiceProviderScreen> {
                             ),
                             child: const Text("Continue", style: TextStyle(fontFamily: "Brand Bold", fontSize: 18),),
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage(widget.service,widget.room,widget.roomTot,widget.date,widget.addService)));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => CartPage(widget.service,widget.room,widget.roomTot,widget.date,widget.addService,widget.location,_selectedProvider)));
                             },
                           ),
                         ),

@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:homevio/Screens/profile_screen.dart';
 import 'package:homevio/Screens/requests_screen.dart';
 import 'package:homevio/Screens/select_service.dart';
+import 'package:homevio/Screens/settings_controller.dart';
 import 'package:homevio/Screens/settings_screen.dart';
 import 'package:homevio/animation/fade_animation.dart';
 import 'package:homevio/constants.dart';
@@ -34,6 +35,8 @@ class _HomePageState extends State<HomePage> {
     ['Michelle Baldwin', 'Cleaner', 'https://uifaces.co/our-content/donated/oLkb60i_.jpg', 4.6],
     ['Brenon Kalu', 'Driver', 'https://uifaces.co/our-content/donated/VUMBKh1U.jpg', 4.4]
   ];
+
+  late final SettingsController controller;
 
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
@@ -284,7 +287,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ListTile(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsScreen(controller: controller)));
                     },
                     leading: const Icon(Icons.settings),
                     title: const Text('Settings',

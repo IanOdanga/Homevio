@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:homevio/Screens/location_screen.dart';
 import 'package:homevio/Screens/service_provider_screen.dart';
 import 'package:homevio/constants.dart';
 import '../widgets/rounded_bordered_container.dart';
@@ -187,7 +188,7 @@ class _checkoutPageState extends State<CheckoutOnePage> {
                 ),
                 child: const Text("Continue", style: TextStyle(fontFamily: "Brand Bold", fontSize: 18),),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ServiceProviderScreen(widget.service,widget.room,widget.roomTot,widget.date,widget.addService,widget.selectedHour)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ClientLocation(widget.service,widget.room,widget.roomTot,widget.date,widget.addService,widget.selectedHour)));
                 },
               ),
             )
