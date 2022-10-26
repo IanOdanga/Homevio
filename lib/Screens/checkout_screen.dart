@@ -4,7 +4,7 @@ import 'package:homevio/Screens/location_screen.dart';
 import 'package:homevio/Screens/service_provider_screen.dart';
 import 'package:homevio/constants.dart';
 import '../widgets/rounded_bordered_container.dart';
-import 'cart.dart';
+import 'cart_screen.dart';
 
 class CheckoutOnePage extends StatefulWidget {
   final String? service;
@@ -16,8 +16,6 @@ class CheckoutOnePage extends StatefulWidget {
 
   const CheckoutOnePage(this.service, this.room, this.roomTot, this.date,
       this.addService, this.selectedHour);
-
-  static const String path = "lib/src/pages/ecommerce/cart1.dart";
 
   @override
   _checkoutPageState createState ()=> _checkoutPageState();

@@ -3,7 +3,7 @@ import 'package:homevio/constants.dart';
 import '../widgets/default_button.dart';
 import '../widgets/empty_section.dart';
 import '../widgets/subtitle.dart';
-import 'home.dart';
+import 'home_screen.dart';
 
 class Success extends StatefulWidget {
   Success({Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:homevio/Screens/cart.dart';
 import 'package:homevio/constants.dart';
 import '../animation/fade_animation.dart';
 import '../models/service_provider.dart';
+import 'cart_screen.dart';
 
 class ServiceProviderScreen extends StatefulWidget {
   final String? service;

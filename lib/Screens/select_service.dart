@@ -1,6 +1,6 @@
 import 'package:homevio/animation/fade_animation.dart';
 import 'package:homevio/models/service.dart';
-import 'package:homevio/Screens/cleaning.dart';
+import 'package:homevio/Screens/room_selection_screen.dart';
 import 'package:flutter/material.dart';
 
 class SelectService extends StatefulWidget {
@@ -36,7 +36,7 @@ class _SelectServiceState extends State<SelectService> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CleaningPage(serviceName),
+                builder: (context) => SelectRoomScreen(serviceName),
               ),
             );
           },
