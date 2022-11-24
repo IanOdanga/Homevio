@@ -1,13 +1,11 @@
 import 'dart:async';
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:homevio/utils/Splash Screen/background.dart';
 import 'package:homevio/models/service.dart';
-
 import '../animation/fade_animation.dart';
 import '../constants.dart';
 import '../utils/components/rounded_button.dart';
+import '../utils/components/rounded_login_button.dart';
 import 'login_screen.dart';
 import 'signup_screen.dart';
 

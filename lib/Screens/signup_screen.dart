@@ -64,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Brand Bold"),
                 ),
                 SizedBox(height: size.height * 0.03),
-                RoundedInputField(
+                RoundInputField(
                   hintText: "Full Name",
                   controller: fullnNameController,
                   hintStyle: const TextStyle(fontFamily: "Brand-Regular"),
@@ -81,7 +81,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     fullnNameController.text = fullName;
                   },
                 ),
-                RoundedInputField(
+                RoundInputField(
                   hintText: "Username",
                   controller: usernameController,
                   hintStyle: const TextStyle(fontFamily: "Brand-Regular"),

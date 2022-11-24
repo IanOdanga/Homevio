@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constants.dart';
-import '../utils/ChangePin/background.dart';
 import '../utils/components/already_have_an_account_acheck.dart';
+import '../utils/components/background.dart';
 import '../utils/components/rounded_button.dart';
 import '../utils/components/rounded_password_field.dart';
 import 'login_screen.dart';
@@ -13,8 +13,8 @@ class ChangePinScreen extends StatefulWidget {
 }
 class _ChangePinScreenState extends State<ChangePinScreen> {
 
-  TextEditingController oldPasswordController = new TextEditingController();
-  TextEditingController newPasswordController = new TextEditingController();
+  TextEditingController oldPasswordController = TextEditingController();
+  TextEditingController newPasswordController = TextEditingController();
 
   String oldPassword = '';
   String newPassword = '';
@@ -29,7 +29,7 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const Text(
-                  "Reset Pin",
+                  "Reset Password",
                   style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Brand Bold"),
                 ),
                 SizedBox(height: size.height * 0.03),
@@ -50,7 +50,7 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
                       return ("Enter Valid Pin(Min. 4 Character)");
                     }
                   },
-                  hintText: "Old M-Banking Pin",
+                  hintText: "Old Password",
                   hintStyle: const TextStyle(fontFamily: "Brand Bold"),
                   onChanged: (value) {
                     oldPassword = value;
@@ -64,13 +64,13 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
                   validator: (value) {
                     RegExp regex = RegExp(r'^.{4,}$');
                     if (value.isEmpty) {
-                      return ("Pin is required for login");
+                      return ("Password is required for login");
                     }
                     if (!regex.hasMatch(value)) {
-                      return ("Enter Valid Pin(Min. 4 Character)");
+                      return ("Enter Valid Password(Min. 4 Character)");
                     }
                   },
-                  hintText: "New M-Banking Pin",
+                  hintText: "New Password",
                   hintStyle: const TextStyle(fontFamily: "Brand Bold"),
                   onChanged: (value) {
                     newPassword = value;
@@ -78,7 +78,7 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
                   },
                 ),
                 RoundedButton(
-                  text: "Reset Pin",
+                  text: "Reset Password",
                   press: () {},
                 ),
                 SizedBox(height: size.height * 0.03),
