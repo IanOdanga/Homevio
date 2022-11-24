@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../models/user_model.dart';
 import '../utils/components/already_have_an_account_acheck.dart';
+import '../utils/components/background.dart';
 import '../utils/components/or_divider.dart';
 import '../utils/components/rounded_button.dart';
 import '../utils/components/rounded_input_field.dart';
@@ -64,7 +65,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: TextStyle(fontWeight: FontWeight.bold, fontFamily: "Brand Bold"),
                 ),
                 SizedBox(height: size.height * 0.03),
-                RoundInputField(
+                RoundedInputField(
                   hintText: "Full Name",
                   controller: fullnNameController,
                   hintStyle: const TextStyle(fontFamily: "Brand-Regular"),
@@ -81,7 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     fullnNameController.text = fullName;
                   },
                 ),
-                RoundInputField(
+                RoundedInputField(
                   hintText: "Username",
                   controller: usernameController,
                   hintStyle: const TextStyle(fontFamily: "Brand-Regular"),
