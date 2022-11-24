@@ -12,7 +12,6 @@ import '../utils/components/rounded_password_field.dart';
 import '../utils/components/social_icon.dart';
 import '../widgets/progress_dialog.dart';
 import 'login_screen.dart';
-import '../utils/Sign Up/background.dart';
 
 class SignUpScreen extends StatefulWidget{
 
