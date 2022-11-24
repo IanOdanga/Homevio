@@ -287,7 +287,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   ListTile(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsScreen(controller: controller)));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsScreen(/*controller: controller*/)));
                     },
                     leading: const Icon(Icons.settings),
                     title: const Text('Settings',

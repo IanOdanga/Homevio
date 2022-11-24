@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:homevio/Screens/Login/login_screen.dart';
+import 'package:homevio/Screens/login_screen.dart';
 
 class SessionTimeout {
   late Timer timer;

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class Constants {
-  static const Color PRIMARY_COLOR = Color(0xffFBFBFB);
+  static const Color PRIMARY_COLOR = Color(0xff97EAD2);
   static const String OTP_GIF_IMAGE = "assets/otp.gif";
   static const String PIN_GIF_IMAGE = "assets/images/Pinreset.gif";
-  static const Color kPrimaryColor = Color(0xFF173753);
+  static const Color kPrimaryColor = Color(0xFF97EAD2);
   static const kPrimaryLightColor = Color(0xFFF1E6FF);
   static const Color textPrimaryColor = Color(0xFFF0F0F0);
-  static const Color kAccentColor = Color(0xFF6DAEDB);
-  static const Color MenuColor = Color(0xFF2892D7);
-  static const Color SecondaryColor = Color(0xFF1D70A2);
+  static const Color kAccentColor = Color(0xFF8CC7A1);
+  static const Color MenuColor = Color(0xFF00A9A5);
+  static const Color SecondaryColor = Color(0xFF0B5351);
   static const Color kSecondaryColor = Color(0xFF1B4353);
-  static const kDarkColor = Color(0xFF303030);
+  static const kDarkColor = Color(0xFF092327);
   static const String success = 'assets/images/success.gif';
 
   static const kDefaultPadding = 24.0;
