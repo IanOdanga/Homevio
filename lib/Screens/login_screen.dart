@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:homevio/Screens/admin_screen.dart';
 import 'package:homevio/Screens/signup_screen.dart';
 import 'package:homevio/utils/components/background.dart';
 import 'package:progress_dialog/progress_dialog.dart';
@@ -10,6 +11,7 @@ import '../utils/components/rounded_button.dart';
 import '../utils/components/rounded_input_field.dart';
 import '../utils/components/rounded_login_button.dart';
 import '../utils/components/rounded_password_field.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget{
@@ -121,6 +123,125 @@ class _LoginScreenState extends State<LoginScreen> {
           )
       ),
     );
+  }
+
+  void route() {
+    User? user = FirebaseAuth.instance.currentUser;
+    var kk = FirebaseFirestore.instance
+        .collection('users')
+        .doc(user!.uid)
+        .get()
+        .then((DocumentSnapshot documentSnapshot) {
+      if (documentSnapshot.exists) {
+        if (documentSnapshot.get('role') == "user") {
+          toastBar("success");
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ),
+          );
+        } else if (documentSnapshot.get('role') == "Admin") {
+          toastBar("success");
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AdminScreen(),
+            ),
+          );
+        } else {
+          toastBar("success");
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const HomePage(),
+            ),
+          );
+        }
+      } else {
+        print('This user is not a ' + documentSnapshot.get('role'));
+      }
+    });
+  }
+
+  void toastBar(String message) {
+    if(message == "success"){
+    ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(16.0),
+                  height: 90,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFF36827F),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: Row(
+                    children: [
+                      const SizedBox(width: 48,),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text("Success!",
+                              style: TextStyle(fontSize: 18.0, color: Colors.white, fontFamily: "ubuntu",),
+                            ),
+                            Spacer(),
+                            Text(
+                              "Login Successful",
+                              style: TextStyle(fontSize: 12.0, color: Colors.white, fontFamily: "ubuntu"),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  bottom: 0,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                    ),
+                    child: SvgPicture.asset("assets/icons/bubbles.svg",
+                      height: 48,
+                      width: 40,
+                      color: const Color(0xFF295147),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: -20,
+                  left: 0,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/icons/success.png",
+                        height: 40,
+                      ),
+                      Positioned(
+                        top: 10,
+                        child: SvgPicture.asset(
+                          "assets/icons/close.svg",
+                          height: 16,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            behavior: SnackBarBehavior.floating,
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+          ),
+        );
+    }
   }
 
   void signIn(String email, String password) async {
