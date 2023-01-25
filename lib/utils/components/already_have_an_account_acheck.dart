@@ -17,13 +17,13 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          login ? "Forgot your M-Banking Pin ? " : "Remember It ? ",
+          login ? "Don't have an account ? " : "Already signed up ? ",
           style: const TextStyle(color: Constants.kPrimaryColor, fontFamily: "Brand-Regular"),
         ),
         GestureDetector(
           onTap: press,
           child: Text(
-            login ? "Reset" : "Login",
+            login ? "Sign Up" : "Login",
             style: const TextStyle(
               color: Constants.kPrimaryColor,
               fontWeight: FontWeight.bold,
